@@ -31,5 +31,5 @@ python sync.py 'C:\Users\user\Dev\xz' 'C:\Users\user\Dev\test' 5 'C:\Users\user\
 ![image](https://user-images.githubusercontent.com/81573309/136705370-586a5a92-2666-4b79-8f91-88b665fc6511.png)
 
 #### Notice:
-* For Windows users - enter paths to directories and the path to the log file must be specified in quotation marks.
+* For Windows users - paths to directories and the path to the log file must be specified in quotation marks.
 * The restart interval is in seconds
