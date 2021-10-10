@@ -1,9 +1,10 @@
 ### Sync.py
 
-Скрипт синхронизирует два каталога - источник и реплику. Синхронизация односторонняя, содержимое каталога реплики приводится к содержимому источника.
-Операции копирования, удаления логируются в файл и выводятся в консоль.
-Используются только стандартные библиотеки Питон.
-Использование:
-Для запуска программы в консоли введите:
+The script synchronizes two directories - the source and the replica. Synchronization is one-way, the contents of the replica directory are converted to the contents of the source.
+Copy and delete operations are logged to a file and output to the console.
+Only standard Python libraries are used.
+The paths to directories, the synchronization interval and the path to the log file are set by command line parameters when starting the program.
+Usage:
+To run the program in the console, enter:
 
-Для пользователей Виндоус - ввод путей к каталогам и путь к файлу логирования нужно указать в ковычках. 
+For Windows users - enter paths to directories and the path to the log file must be specified in quotation marks.
