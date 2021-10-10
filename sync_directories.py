@@ -11,14 +11,14 @@ from stat import *
 import inspect, os.path
 
 class Node:
-    ''' This class represents a node in synchronization. '''  
+    ''' Class represents a node in synchronization. '''  
     def __init__(self, path, name=''):
         self.name = name
         self.root_path = path
         self.files_list = os.listdir(path)
 
 class Synchronizer:
-    ''' This class represents a synchronization object. '''
+    ''' Class represents a synchronization object. '''
     
     def __init__(self, name=''):
         self.name = name
@@ -33,7 +33,7 @@ class Synchronizer:
         self.node_list.append(node)
 
     def compare_nodes(self):
-        ''' This method compares the nodes in the node_list.''' 
+        ''' Method compares the nodes in the node_list.''' 
 
         for node in self.node_list:            
             if self.node_list.index(node) < len(self.node_list) - 1: 
@@ -42,7 +42,7 @@ class Synchronizer:
                 self._compare_directories(node.root_path, node2.root_path)
     
     def _compare_directories(self, left, right):
-        ''' This method compares directories. In case with common directory, 
+        ''' Method compares directories. In case with common directory, 
             compare what is inside of the directory by recursively call. If some directories or files 
             is only in replica - method deleted them.
         '''
@@ -79,7 +79,7 @@ class Synchronizer:
 
     def _copy(self, files_list, src, dest):
         
-        ''' This method copies a list of files from a source node to a destination node '''
+        ''' Method copies a list of files from a source node to a destination node '''
         for f in files_list:
             srcpath = os.path.join(src, os.path.basename(f))
             if os.path.isdir(srcpath):
@@ -93,7 +93,7 @@ class Synchronizer:
   
 
 def createParser ():
-    ''' This method reads and adds argument values from the command line. '''
+    ''' Method reads and adds argument values from the command line. '''
     
     parser = argparse.ArgumentParser()
     parser.add_argument ('path_source')
@@ -108,6 +108,8 @@ if __name__ == "__main__":
     parser = createParser()
     namespace = parser.parse_args()
 
+    ''' Add logging in file and console. '''
+
     file_log = logging.FileHandler(namespace.path_log)
     console_out = logging.StreamHandler()
     logging.basicConfig(handlers=(file_log, console_out), 
@@ -118,18 +120,19 @@ if __name__ == "__main__":
     my_synchronizer= Synchronizer()  
     node1 = Node(namespace.path_source, 'node1')
     node2 = Node(namespace.path_target, 'node2') 
-    
     my_synchronizer.add_node(node1)
-    my_synchronizer.add_node(node2)    
-    my_synchronizer.compare_nodes()    
-    print ('Total files copied ' + str(my_synchronizer.files_copied_total))
-    print ('Total folders copied ' + str(my_synchronizer.folders_copied_total))
-    print ('Total files deleted ' + str(my_synchronizer.files_deleted_total))
-    print ('Total folders deleted ' + str(my_synchronizer.folders_deleted_total))
+    my_synchronizer.add_node(node2)  
     
+    ''' Add periodic function call and print number of delete and copy operations. '''
+
     while True:
         my_synchronizer.files_copied_total = my_synchronizer.folders_copied_total = 0
         my_synchronizer.files_deleted_total = my_synchronizer.folders_deleted_total =0
-        time.sleep(10)
-        target_time = time.localtime()        
-        my_synchronizer.compare_nodes() 
+        my_synchronizer.compare_nodes()  
+
+        print ('Total files copied ' + str(my_synchronizer.files_copied_total))
+        print ('Total folders copied ' + str(my_synchronizer.folders_copied_total))
+        print ('Total files deleted ' + str(my_synchronizer.files_deleted_total))
+        print ('Total folders deleted ' + str(my_synchronizer.folders_deleted_total))
+        time.sleep(namespace.interval)
+    
