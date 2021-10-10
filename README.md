@@ -29,8 +29,11 @@ python sync.py 'source directory path' 'replica directory path' interval 'path t
 python sync.py 'C:\Users\user\Dev\xz' 'C:\Users\user\Dev\test' 5 'C:\Users\user\Dev\sprint13\Log.log'
 
 #### Notice:
+* Clone the repository and go to it on the command line:
 * For Windows users - enter paths to directories and the path to the log file must be specified in quotation marks.
-* The restart interval is in seconds.
+* The restart interval is in seconds
+
+
 
 
 
