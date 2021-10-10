@@ -28,6 +28,8 @@ python sync.py (source directory path) (replica directory path) (interval) (path
 ```bash
 python sync.py 'C:\Users\user\Dev\xz' 'C:\Users\user\Dev\test' 5 'C:\Users\user\Dev\sprint13\Log.log'
 ```
+![image](https://user-images.githubusercontent.com/81573309/136705370-586a5a92-2666-4b79-8f91-88b665fc6511.png)
+
 #### Notice:
 * Clone the repository and go to it on the command line:
 * For Windows users - enter paths to directories and the path to the log file must be specified in quotation marks.
