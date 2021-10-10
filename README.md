@@ -1,4 +1,4 @@
-### Sync.py
+## Sync.py
 
 #### Description:
 * The script synchronizes two directories - the source and the replica. 
@@ -12,19 +12,19 @@
   
 #### How to use:
 
-Clone the repository and go to it on the command line:
+* Clone the repository and go to it on the command line:
 ```bash
-git clone https://github.com/feyaschuk/api_yamdb.git
+git clone https://github.com/feyaschuk/Veeam_Software_test_task.git
 ```
 ```bash
-cd api_yamdb
+cd Veeam_Software_test_task
 ```
 
-Run the program:
+* Run the program:
 ```bash
 python sync.py 'source directory path' 'replica directory path' interval 'path to the log file'
 
-Example of use:
+* Example of use:
 ```bash
 python sync.py 'C:\Users\user\Dev\xz' 'C:\Users\user\Dev\test' 5 'C:\Users\user\Dev\sprint13\Log.log'
 
