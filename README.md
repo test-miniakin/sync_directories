@@ -22,12 +22,12 @@ cd Veeam_Software_test_task
 
 * Run the program:
 ```bash
-python sync.py 'source directory path' 'replica directory path' interval 'path to the log file'
+python sync.py (source directory path) (replica directory path) (interval) (path to the log file)
 ```
 * Example of use:
 ```bash
 python sync.py 'C:\Users\user\Dev\xz' 'C:\Users\user\Dev\test' 5 'C:\Users\user\Dev\sprint13\Log.log'
-
+```
 #### Notice:
 * Clone the repository and go to it on the command line:
 * For Windows users - enter paths to directories and the path to the log file must be specified in quotation marks.
