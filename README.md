@@ -24,7 +24,7 @@ cd Veeam_Software_test_task
 ```bash
 python sync.py (source directory path) (replica directory path) (interval) (path to the log file)
 ```
-* Example of use:
+#### Example of use:
 ```bash
 python sync.py 'C:\Users\user\Dev\xz' 'C:\Users\user\Dev\test' 5 'C:\Users\user\Dev\sprint13\Log.log'
 ```
