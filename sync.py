@@ -8,7 +8,7 @@ import time
 import unittest
 from pathlib import Path
 from stat import *
-import inspect, os.path
+
 
 class Node:
     ''' Class represents a node in synchronization. '''  
@@ -90,18 +90,17 @@ class Synchronizer:
                 shutil.copy2(srcpath, dest)
                 self.files_copied_total = self.files_copied_total + 1
                 logging.info('Copied \"' + os.path.basename(srcpath) + '\" from \"' + os.path.dirname(srcpath) + '\" to \"' + dest + '\"')
-  
+
 
 def createParser ():
-    ''' Method reads and adds argument values from the command line. '''
-    
-    parser = argparse.ArgumentParser()
+    ''' Method reads and adds argument values from the command line. '''    
+    parser = argparse.ArgumentParser()       
     parser.add_argument ('path_source')
     parser.add_argument ('path_target')
     parser.add_argument ('interval', type=int)
     parser.add_argument ('path_log')
-    
     return parser
+
 
 if __name__ == "__main__":
     
@@ -119,7 +118,7 @@ if __name__ == "__main__":
 
     my_synchronizer= Synchronizer()  
     node1 = Node(namespace.path_source, 'node1')
-    node2 = Node(namespace.path_target, 'node2') 
+    node2 = Node(namespace.path_target, 'node2')        
     my_synchronizer.add_node(node1)
     my_synchronizer.add_node(node2)  
     
