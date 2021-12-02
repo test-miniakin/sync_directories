@@ -14,10 +14,10 @@
 
 * Clone the repository and go to it on the command line:
 ```bash
-git clone https://github.com/feyaschuk/sync_directories_Veeam_test_task.git
+git clone https://github.com/feyaschuk/sync_directories.git
 ```
 ```bash
-cd sync_directories_Veeam_test_task
+cd sync_directories
 ```
 
 * Run the program:
