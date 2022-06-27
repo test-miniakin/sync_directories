@@ -31,8 +31,8 @@ class Synchronizer:
 
     def compare_nodes(self):
         ''' Compares the nodes in the node_list.'''
-
-        for node in self.node_list:
+                                                                                        # По PEP 257 не нужно пропустать строку 
+        for node in self.node_list: # Может сразу вытянуть индексы через enumerate?
             if self.node_list.index(node) < len(self.node_list) - 1:
                 node2 = self.node_list[self.node_list.index(node) + 1]
                 print('\n Comparing Node ' + str(
@@ -88,21 +88,21 @@ class Synchronizer:
                 shutil.copytree(srcpath, os.path.join(
                     dest, os.path.basename(f)))
                 self.folders_copied_total = self.folders_copied_total + 1
-                logging.info('Copied directory \"' + os.path.basename(srcpath)
+                logging.info('Copied directory \"' + os.path.basename(srcpath) 
                              + '\" from \"' + os.path.dirname(srcpath)
-                             + '\" to \"' + dest + '\"')
+                             + '\" to \"' + dest + '\"') # сообщение логов онтиличается одной фразой, можно вынести и оставить один лог( выше аналогичная ситуация)
             else:
                 shutil.copy2(srcpath, dest)
                 self.files_copied_total = self.files_copied_total + 1
-                logging.info('Copied \"' + os.path.basename(srcpath) +
+                logging.info('Copied \"' + os.path.basename(srcpath) +   
                              '\" from \"' + os.path.dirname(srcpath) +
-                             '\" to \"' + dest + '\"')
+                             '\" to \"' + dest + '\"')# Можно f-строой
 
 
 def create_parser():
     ''' Reads and adds argument values from the command line.'''
     parser = argparse.ArgumentParser()
-    parser.add_argument('path_source')
+    parser.add_argument('path_source') # я бы вынес эти значения в атрибут класса списком и прошелся тут циклом - будет проще настраиваемо.
     parser.add_argument('path_target')
     parser.add_argument('interval', type=int)
     parser.add_argument('path_log')
@@ -138,7 +138,7 @@ if __name__ == "__main__":
         my_sync.files_deleted_total = my_sync.folders_deleted_total = 0
         my_sync.compare_nodes()
 
-        print('Total files copied ' + str(my_sync.files_copied_total))
+        print('Total files copied ' + str(my_sync.files_copied_total)) # Может лучше через f-строку? Будет быстрее немного и читаеме
         print('Total folders copied ' + str(my_sync.folders_copied_total))
         print('Total files deleted ' + str(my_sync.files_deleted_total))
         print('Total folders deleted ' + str(my_sync.folders_deleted_total))
